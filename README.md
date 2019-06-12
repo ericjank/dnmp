@@ -60,7 +60,7 @@ DNMP项目特点：
 1. 本地安装`git`、`docker`和`docker-compose`。
 2. `clone`项目：
     ```
-    $ git clone https://github.com/yeszao/dnmp.git
+    $ git clone https://github.com/ericjank/dnmp.git
     ```
 3. 如果不是`root`用户，还需将当前用户加入`docker`用户组：
     ```
