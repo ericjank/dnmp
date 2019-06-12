@@ -264,3 +264,9 @@ if [ -z "${EXTENSIONS##*,yaf,*}" ]; then
     printf "\n" | pecl install yaf
     docker-php-ext-enable yaf
 fi
+
+if [ -z "${EXTENSIONS##*,qii,*}" ]; then
+    echo "---------- Install qii ----------"
+    printf "\n" | cp ${PWD}/qii.so /usr/local/lib/php/extensions/no-debug-non-zts-20170718
+    docker-php-ext-enable qii
+fi
