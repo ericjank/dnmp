@@ -12,7 +12,9 @@ services:
       - ${NGINX_LOG_DIR}:/var/log/nginx/:rw
     restart: always
     networks:
-      - default
+      qvpcbr:
+        ipv4_address: 172.10.0.2
+
 
   php72:
     build:
@@ -31,7 +33,9 @@ services:
     cap_add:
       - SYS_PTRACE
     networks:
-      - default
+      qvpcbr:
+        ipv4_address: 172.10.0.5
+
 
   php56:
     build:
@@ -50,7 +54,8 @@ services:
     cap_add:
       - SYS_PTRACE
     networks:
-      - default
+      qvpcbr:
+        ipv4_address: 172.10.0.3
 
   mysql:
     image: mysql:${MYSQL_VERSION}
@@ -61,7 +66,8 @@ services:
       - ${MYSQL_DATA_DIR}:/var/lib/mysql/:rw
     restart: always
     networks:
-      - default
+      qvpcbr:
+        ipv4_address: 172.10.0.6
     environment:
       MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
 
@@ -74,15 +80,17 @@ services:
     restart: always
     entrypoint: ["redis-server", "/etc/redis.conf"]
     networks:
-      - default
-    
+      qvpcbr:
+        ipv4_address: 172.10.0.4
+
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     ports:
       - "${PHPMYADMIN_HOST_PORT}:80"
     networks:
-      - default
+      qvpcbr:
+        ipv4_address: 172.10.0.7
     environment:
       - PMA_HOST=mysql
       - PMA_PORT=3306
@@ -92,10 +100,14 @@ services:
     ports:
       - "${REDISMYADMIN_HOST_PORT}:80"
     networks:
-      - default
+      qvpcbr:
+        ipv4_address: 172.10.0.8
     environment:
       - REDIS_1_HOST=redis
       - REDIS_1_PORT=6379
 
 networks:
-  default:
+  qvpcbr:
+    ipam:
+      config:
+        - subnet: 172.10.0.0/16
