@@ -1,7 +1,5 @@
 DNMP（Docker + Nginx + MySQL + PHP7/5 + Redis）是一款全功能的**LNMP一键安装程序**。
 
-**[[ENGLISH]](README-en.md)**
-
 DNMP项目特点：
 1. `100%`开源
 2. `100%`遵循Docker标准
@@ -71,7 +69,7 @@ DNMP项目特点：
     $ cd dnmp
     $ cp env.sample .env
     $ cp docker-compose-sample.yml docker-compose.yml
-    $ docker-compose up
+    $ docker-compose up -d
     ```
     注意：Windows安装360安全卫士的同学，请先将其退出，不然安装过程中可能Docker创建账号过程可能被拦截，导致启动时文件共享失败；
 5. 访问在浏览器中访问：
