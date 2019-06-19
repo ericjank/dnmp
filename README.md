@@ -27,8 +27,6 @@ DNMP项目特点：
     - [7.1 phpMyAdmin](#71-phpmyadmin)
     - [7.2 phpRedisAdmin](#72-phpredisadmin)
 - [8.在正式环境中安全使用](#8在正式环境中安全使用)
-- [9.常见问题](#9常见问题)
-    - [9.1 如何在PHP代码中使用curl？](#91-如何在php代码中使用curl)
 
 
 ## 1.目录结构
