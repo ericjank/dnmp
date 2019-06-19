@@ -244,16 +244,6 @@ Redis连接信息如下：
 2. 增强MySQL数据库访问的安全策略
 3. 增强redis访问的安全策略
 
-
-## 9.常见问题
-### 9.1 如何在PHP代码中使用curl？
-参考这个issue：[https://github.com/yeszao/dnmp/issues/91](https://github.com/yeszao/dnmp/issues/91)
-
-## TODO list
-- [ ] Show php log
-- [ ] Add php 7.3
-- [ ] Update install.sh
-
 ## License
 MIT
 
