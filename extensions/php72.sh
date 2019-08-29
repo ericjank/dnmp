@@ -69,3 +69,20 @@ if [ -z "${EXTENSIONS##*,sqlsrv,*}" ]; then
     printf "\n" | pecl install sqlsrv
     docker-php-ext-enable sqlsrv
 fi
+
+if [ -z "${EXTENSIONS##*,zookeeper,*}" ]; then
+    echo "---------- Install zookeeper ----------"
+    cd lib 
+    tar -zxvf zookeeper-3.4.10.tar.gz
+    cd zookeeper-3.4.10/src/c
+    ./configure --prefix=/usr/local/libzookeeper
+    make && make install
+    cd ../../../
+    wget http://pecl.php.net/get/zookeeper-0.5.0.tgz \
+    && mkdir zookeeper \
+    && tar -xf zookeeper-0.5.0.tgz -C zookeeper --strip-components=1 \
+    && ( cd zookeeper && phpize && ./configure --with-libzookeeper-dir=/usr/local/libzookeeper --with-php-config=/usr/local/bin/php-config&& make ${MC} && make install ) \
+    && docker-php-ext-enable zookeeper
+    
+    cd ..
+fi
